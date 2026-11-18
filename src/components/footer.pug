@@ -1,0 +1,20 @@
+- const year = new Date().getFullYear();
+
+footer.footer
+  .container.footer__inner
+    .footer__brand
+      a.logo(href="#top" aria-label="Keepsake - на початок")
+        include /includes/logo
+      p.footer__note © #{ year } Keepsake. Усі права захищені.
+    each column, i in footerColumns
+      nav.footer__col(aria-labelledby=`footer-title-${i}`)
+        h2.footer__title(id=`footer-title-${i}`)= column.title
+        ul.footer__list
+          each link in column.links
+            li
+              a.footer__link(href=link.href)= link.label
+    ul.socials
+      each social in socials
+        li
+          a.socials__link(href=social.href aria-label=social.label)
+            +icon(social.name)

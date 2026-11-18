@@ -1,0 +1,27 @@
+//- +picture({ name, alt, ratio, widths, sizes, priority, cls })
+//-   name     - база імені файлу: <name>-<width>.{avif,webp,jpg}
+//-   ratio    - висота / ширина (для width/height, щоб не було зсуву макета)
+//-   widths   - доступні ширини (за замовчуванням 400 і 800)
+//-   priority - зображення першого екрана: без lazy, з fetchpriority="high"
+mixin picture(opts)
+  - const widths = opts.widths || [400, 800];
+  - const largest = Math.max(...widths);
+  - const sizes = opts.sizes || "100vw";
+  - const dir = "/src/assets/images";
+  - const srcset = (ext) => widths.map((w) => `${dir}/${opts.name}-${w}.${ext} ${w}w`).join(", ");
+  - let loadingAttrs;
+  if opts.priority
+    - loadingAttrs = { fetchpriority: "high" };
+  else
+    - loadingAttrs = { loading: "lazy" };
+  picture
+    source(type="image/avif" srcset=srcset("avif") sizes=sizes)
+    source(type="image/webp" srcset=srcset("webp") sizes=sizes)
+    img(
+      class=opts.cls
+      src=`${dir}/${opts.name}-${largest}.jpg`
+      alt=opts.alt
+      width=largest
+      height=Math.round(largest * opts.ratio)
+      decoding="async"
+    )&attributes(loadingAttrs)

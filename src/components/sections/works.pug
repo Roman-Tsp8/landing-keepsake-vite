@@ -1,0 +1,18 @@
++section("works", "Обрані роботи").section--tinted
+  .works
+    //- радіокнопки й чипси генеруються з одного масиву categories
+    each cat, i in categories
+      input.works__radio(
+        class=`works__radio--${cat.id}`
+        type="radio"
+        name="works-filter"
+        id=`filter-${cat.id}`
+        checked=i === 0
+      )
+    .works__chips(role="group" aria-label="Фільтр робіт за категорією")
+      each cat in categories
+        label.chip(for=`filter-${cat.id}`)= cat.label
+    ul.works-grid
+      each work, i in works
+        li.works-grid__item(data-category=work.category)
+          +work-card(work)

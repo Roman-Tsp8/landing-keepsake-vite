@@ -1,0 +1,7 @@
+//- +section(id, title)(class="section--tinted")
+//- Обгортка секції із заголовком; вміст секції приходить через block
+mixin section(id, title)
+  section.section(id=id aria-labelledby=`${id}-title`)&attributes(attributes)
+    .container
+      h2.section-title(id=`${id}-title`)= title
+      block

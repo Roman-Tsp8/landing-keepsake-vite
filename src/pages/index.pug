@@ -1,0 +1,19 @@
+extends /layouts/main
+
+block append meta
+  meta(
+    name="description"
+    content="We are Keepsake, a digital & branding agency based in Amsterdam. We love to turn great ideas into beautiful products."
+  )
+
+block title
+  | Keepsake — Digital & Branding Agency
+
+block content
+  include /components/sections/hero
+  include /components/sections/works
+  include /components/sections/cta
+  include /components/sections/services
+  include /components/sections/stats
+  include /components/sections/journal
+  include /components/sections/clients

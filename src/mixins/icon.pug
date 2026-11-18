@@ -1,0 +1,39 @@
+//- +icon(name) - інлайн-SVG іконка; вибір контуру через case/when
+mixin icon(name)
+  svg.icon(
+    class=`icon--${name}`
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    aria-hidden="true"
+    focusable="false"
+  )&attributes(attributes)
+    case name
+      when "brand"
+        path(d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6l-5.4 2.9 1.2-6-4.5-4.2 6.1-.7z")
+      when "print"
+        path(
+          d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z"
+        )
+      when "web"
+        path(d="M3 5h18v14H3zM3 9h18M7 7h.01")
+      when "spark"
+        path(
+          d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"
+        )
+      when "arrow"
+        path(d="M5 12h14M13 6l6 6-6 6")
+      when "instagram"
+        path(
+          d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM17.5 6.5h.01"
+        )
+      when "behance"
+        path(
+          d="M3 6h6a3 3 0 0 1 0 6H3zM3 12h7a3 3 0 0 1 0 6H3zM14 8h7M14.5 15a3 3 0 0 0 6 0h-6a3 3 0 0 1 6 0"
+        )
+      when "dribbble"
+        path(
+          d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM4 9c5 1 10 0 15-3M8 4c3 4 5 9 5 17M20 13c-4-1-8 0-11 4"
+        )
+      default
+        circle(cx="12" cy="12" r="9")

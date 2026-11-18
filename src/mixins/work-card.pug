@@ -1,0 +1,16 @@
+//- +work-card(work) - одна картка роботи портфоліо
+mixin work-card(work)
+  - const category = categories.find((item) => item.id === work.category);
+  article.work-card
+    .work-card__media
+      +picture({
+        name: work.image,
+        alt: work.alt,
+        ratio: 0.79,
+        sizes: "(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw",
+        cls: "work-card__img",
+      })
+    .work-card__body
+      h3.work-card__title #{ work.title }
+      if category
+        p.work-card__meta= category.label

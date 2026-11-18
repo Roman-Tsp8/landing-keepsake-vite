@@ -1,0 +1,19 @@
+section.hero(aria-labelledby="hero-title")
+  .container.hero__inner
+    .hero__content
+      p.hero__eyebrow Студія брендингу, друку й вебу
+      h1#hero-title.hero__title Речі, які хочеться зберегти
+      p.hero__text Створюємо айдентику, пакування та сайти, до яких повертаються. Без шаблонів і зайвого шуму.
+      .hero__actions
+        +btn("Дивитися роботи", "#works")
+        +btn("Написати нам", "#contact", "ghost")
+    .hero__media
+      +picture({
+        name: "hero",
+        alt: "Абстрактна композиція з коралового кола та плавних форм",
+        ratio: 0.75,
+        widths: [800, 1200],
+        sizes: "(min-width: 1280px) 600px, (min-width: 768px) 50vw, 100vw",
+        priority: true,
+        cls: "hero__img",
+      })

@@ -1,0 +1,32 @@
+//- Міксини й дані підключаємо в макеті - вони доступні всім сторінкам і компонентам
+include /mixins/btn
+include /mixins/icon
+include /mixins/picture
+include /mixins/work-card
+include /mixins/section
+include /mixins/cards
+
+include /data/nav
+include /data/works
+include /data/services
+include /data/stats
+include /data/journal
+include /data/footer
+
+doctype html
+html(lang="uk")
+  head
+    block meta
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+    title
+      block title
+        | Keepsake
+    block styles
+      link(rel="stylesheet" href="/src/styles/main.scss")
+  body#top
+    a.skip-link(href="#main") Перейти до основного вмісту
+    include /components/header
+    main#main
+      block content
+    include /components/footer

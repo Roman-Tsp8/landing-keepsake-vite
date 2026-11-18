@@ -1,0 +1,13 @@
+//- +btn(label, href, variant)(aria-label="…")
+//- variant: primary (за замовчуванням) | ghost | light
+//- Довільні атрибути (aria-label, target…) приходять через &attributes
+mixin btn(label, href = "#", variant = "primary")
+  - let modifier;
+  case variant
+    when "ghost"
+      - modifier = "btn--ghost";
+    when "light"
+      - modifier = "btn--light";
+    default
+      - modifier = "btn--primary";
+  a.btn(class=modifier href=href)&attributes(attributes)= label

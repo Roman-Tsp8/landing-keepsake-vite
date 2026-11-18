@@ -1,0 +1,5 @@
++section("journal", "Журнал")
+  ul.journal
+    each post, i in posts
+      li.journal__item
+        +journal-card(post, i)

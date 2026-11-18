@@ -1,0 +1,29 @@
+//- +service-card(service)
+mixin service-card(service)
+  article.service-card
+    span.service-card__icon
+      +icon(service.icon)
+    h3.service-card__title= service.title
+    p.service-card__text= service.text
+
+//- +stat(item)
+mixin stat(item)
+  p.stat
+    strong.stat__value= item.value
+    span.stat__label= item.label
+
+//- +journal-card(post, i) - перший запис крупніший (i === 0)
+mixin journal-card(post, i = 0)
+  article.journal-card(class={ "journal-card--featured": i === 0 })
+    .journal-card__media
+      +picture({
+        name: post.image,
+        alt: post.alt,
+        ratio: 0.625,
+        sizes: "(min-width: 1280px) 400px, (min-width: 768px) 33vw, 100vw",
+        cls: "journal-card__img",
+      })
+    .journal-card__body
+      time.journal-card__date(datetime=post.date)= post.dateLabel
+      h3.journal-card__title
+        a.journal-card__link(href=post.href) #{ post.title }
