@@ -1,0 +1,15 @@
+{
+  "plugins": ["@prettier/plugin-pug"],
+  "printWidth": 100,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.pug",
+      "options": {
+        "pugSingleQuote": false,
+        "pugPrintWidth": 100,
+        "pugAttributeSeparator": "as-needed"
+      }
+    }
+  ]
+}
