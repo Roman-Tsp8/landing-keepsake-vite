@@ -1,0 +1,150 @@
+@use '../abstracts' as *;
+
+.client-logos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include mq(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__item {
+    @include flex-center;
+
+    height: 72px;
+    font-size: 22px;
+    line-height: 33px;
+    color: var(--color-logo);
+    letter-spacing: 1px;
+
+    &--nordly {
+      font-family: var(--font-oswald);
+      font-weight: 700;
+    }
+
+    &--halcyon {
+      font-family: var(--font-dancing-script);
+      font-weight: 700;
+    }
+
+    &--arco {
+      font-family: var(--font-oswald);
+      font-weight: 300;
+    }
+
+    &--pinewood {
+      font-family: var(--font-open-sans);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    &--vela {
+      font-family: var(--font-oswald);
+      font-weight: 400;
+      letter-spacing: 3px;
+    }
+
+    &--ostra {
+      font-family: var(--font-open-sans);
+      font-weight: 300;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 28px 24px;
+  background-color: var(--color-bg-light);
+
+  @include mq(md) {
+    padding: 40px 48px;
+  }
+
+  &__quote-mark {
+    height: 44px;
+    font-family: var(--font-open-sans);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 44px;
+    color: var(--color-accent);
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+
+    @include mq(md) {
+      font-size: 19px;
+    }
+
+    @include mq(lg) {
+      font-size: 22px;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  &__avatar {
+    @include flex-center;
+
+    width: 48px;
+    height: 48px;
+    font-family: var(--font-oswald);
+    font-size: 17px;
+    color: var(--color-white);
+    background-color: var(--color-teal);
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-family: var(--font-oswald);
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--color-text-dark);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  &__role {
+    margin-top: 2px;
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--color-muted);
+  }
+
+  &__dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 4px;
+    background-color: var(--color-dot);
+
+    &--active {
+      width: 24px;
+      background-color: var(--color-accent);
+    }
+  }
+}

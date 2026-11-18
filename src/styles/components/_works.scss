@@ -1,0 +1,94 @@
+@use '../abstracts' as *;
+
+.works {
+  &__radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 22px;
+
+    @include mq(md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__chips {
+    display: flex;
+    gap: 8px;
+    margin-right: calc(var(--container-padding) * -1);
+    padding-right: var(--container-padding);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    @include mq(md) {
+      margin-right: 0;
+      padding-right: 0;
+      overflow: visible;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  &__more-btn {
+    width: 100%;
+
+    @include mq(md) {
+      width: auto;
+    }
+  }
+}
+
+@each $id in $filter-ids {
+  .works__radio--#{$id}:checked ~ .works__head .chip[for='filter-#{$id}'] {
+    color: var(--color-white);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .works__radio--#{$id}:focus-visible ~ .works__head .chip[for='filter-#{$id}'] {
+    @include focus-ring;
+  }
+
+  @if $id != 'all' {
+    .works__radio--#{$id}:checked ~ .works-grid .work-card:not([data-category='#{$id}']) {
+      display: none;
+    }
+  }
+}
+
+.works__radio--all:checked ~ .works-grid .work-card:nth-child(n + 6) {
+  display: none;
+
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.works__radio--all:checked ~ .works-grid .work-card:nth-child(n + 9) {
+  @include mq(md) {
+    display: none;
+  }
+
+  @include mq(lg) {
+    display: block;
+  }
+}

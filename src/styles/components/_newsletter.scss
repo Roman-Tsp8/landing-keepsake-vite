@@ -1,0 +1,118 @@
+@use '../abstracts' as *;
+
+.newsletter-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @include mq(md) {
+    width: 330px;
+  }
+
+  @include mq(lg) {
+    width: 420px;
+  }
+
+  &__desc {
+    line-height: 20px;
+    color: var(--color-footer-muted);
+  }
+
+  &__success {
+    display: none;
+    line-height: 20px;
+    color: var(--color-teal);
+
+    &:target {
+      display: block;
+    }
+  }
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include mq(md) {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    color: var(--color-white);
+    background-color: var(--color-footer-field);
+    border: 1px solid var(--color-footer-field-border);
+
+    @include mq(md) {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &::placeholder {
+      color: var(--color-footer-subtle);
+    }
+
+    &:focus {
+      border-color: var(--color-teal);
+      outline: none;
+    }
+
+    &:user-invalid {
+      border-color: var(--color-accent);
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    height: 44px;
+
+    @include mq(md) {
+      flex: none;
+      width: 103px;
+    }
+  }
+
+  &__error {
+    display: none;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-accent);
+  }
+
+  &__consent {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__checkbox {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--color-accent);
+  }
+
+  &__consent-text {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-footer-subtle);
+    cursor: pointer;
+  }
+}
+
+.newsletter-form:has(.newsletter-form__input:user-invalid) .newsletter-form__error {
+  display: block;
+}
+
+.newsletter-block:has(.newsletter-block__success:target) .newsletter-form {
+  display: none;
+}

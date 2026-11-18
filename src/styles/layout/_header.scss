@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__menu-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__burger-btn {
+    @include flex-center;
+
+    width: 40px;
+    height: 40px;
+    color: var(--color-text-dark);
+    cursor: pointer;
+
+    @include mq(md) {
+      display: none;
+    }
+  }
+
+  &__icon-close {
+    display: none;
+  }
+}
+
+.header__menu-input:checked ~ .header__burger-btn .header__icon-burger {
+  display: none;
+}
+
+.header__menu-input:checked ~ .header__burger-btn .header__icon-close {
+  display: block;
+}
+
+.header__menu-input:focus-visible ~ .header__burger-btn {
+  @include focus-ring;
+}

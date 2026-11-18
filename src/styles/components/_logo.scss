@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+.logo {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+
+  &__mark {
+    @include flex-center;
+
+    width: 34px;
+    height: 34px;
+    font-family: var(--font-dancing-script);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-white);
+    background-color: var(--color-text-dark);
+    border-radius: 50%;
+
+    @include mq(md) {
+      width: 40px;
+      height: 40px;
+      font-size: 26px;
+    }
+  }
+
+  &__text {
+    font-family: var(--font-dancing-script);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text-dark);
+
+    @include mq(md) {
+      font-size: 26px;
+    }
+  }
+}

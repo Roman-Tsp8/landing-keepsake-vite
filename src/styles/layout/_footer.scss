@@ -1,0 +1,108 @@
+@use '../abstracts' as *;
+
+.footer {
+  margin-top: var(--section-padding);
+  padding: 48px 0 28px;
+  color: var(--color-white);
+  background-color: var(--color-footer);
+
+  @include mq(md) {
+    padding: 64px 0 32px;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    @include mq(md) {
+      flex-direction: row;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  &__heading {
+    font-family: var(--font-oswald);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: var(--color-white);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  &__links {
+    display: flex;
+    gap: 20px;
+
+    @include mq(md) {
+      order: -1;
+      gap: 32px;
+    }
+
+    @include mq(lg) {
+      gap: 60px;
+    }
+  }
+
+  &__col {
+    flex: 1;
+
+    @include mq(md) {
+      flex: none;
+      width: 140px;
+    }
+
+    @include mq(lg) {
+      width: 180px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  &__link {
+    line-height: 20px;
+    color: var(--color-footer-link);
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    margin: 36px 0 24px;
+    background-color: var(--color-footer-divider);
+
+    @include mq(md) {
+      margin: 48px 0 24px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  &__copyright {
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--color-footer-subtle);
+  }
+}

@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+.socials {
+  display: flex;
+  gap: 10px;
+
+  @include mq(md) {
+    gap: 8px;
+  }
+
+  @include mq(lg) {
+    gap: 10px;
+  }
+
+  &__icon {
+    @include flex-center;
+
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: var(--color-white);
+    border-radius: 50%;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &--rss {
+      background-color: var(--color-social-rss);
+    }
+
+    &--f {
+      background-color: var(--color-social-f);
+    }
+
+    &--tw {
+      background-color: var(--color-social-tw);
+    }
+
+    &--dr {
+      background-color: var(--color-social-dr);
+    }
+
+    &--p {
+      background-color: var(--color-social-p);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as vars;
+
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+@function space($key) {
+  @if not map.has-key(vars.$spacing, $key) {
+    @error "Unknown spacing '#{$key}'.";
+  }
+
+  @return rem(map.get(vars.$spacing, $key));
+}
