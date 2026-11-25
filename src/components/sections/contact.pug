@@ -1,4 +1,9 @@
-+section("clients", "Our Clients")
+section#contact.section.cta(aria-labelledby="cta-title")
+  .container.cta__container
+    h2#cta-title.cta__title Бажаєте попрацювати з нами?
+    +btn("Написати нам", "#footer", "primary")
+
++section("clients", "Наші клієнти")
   ul.client-logos
     li.client-logos__item.client-logos__item--nordly NORDLY
     li.client-logos__item.client-logos__item--halcyon Halcyon
@@ -9,7 +14,7 @@
   blockquote.testimonial
     span.testimonial__quote-mark(aria-hidden="true") “
     p.testimonial__text
-      | Keepsake transformed our brand identity from the ground up. Their attention to detail and creative vision exceeded every expectation we had.
+      | Keepsake оновили айдентику нашого бренду з нуля. Їхня увага до деталей та творче бачення перевершили всі наші очікування.
     footer.testimonial__author
       .testimonial__info
         .testimonial__avatar(aria-hidden="true") EL

@@ -3,17 +3,24 @@ extends /layouts/main
 block append meta
   meta(
     name="description"
-    content="We are Keepsake, a digital & branding agency based in Amsterdam. We love to turn great ideas into beautiful products."
+    content="Keepsake - студія брендингу, друку та веб-дизайну. Речі, які хочеться зберегти."
   )
+  meta(property="og:type" content="website")
+  meta(property="og:title" content="Keepsake - студія брендингу та дизайну")
+  meta(property="og:description" content="Брендинг, друк і веб-дизайн з увагою до деталей.")
+  meta(name="theme-color" content="#ff6b5b")
 
 block title
-  | Keepsake — Digital & Branding Agency
+  | Keepsake - студія брендингу та дизайну
+
+block prepend scripts
+  - const studio = { "@context": "https://schema.org", "@type": "Organization", name: "Keepsake", email: "hello@keepsake.example" };
+  script(type="application/ld+json")!= JSON.stringify(studio)
 
 block content
   include /components/sections/hero
-  include /components/sections/works
-  include /components/sections/cta
   include /components/sections/services
+  include /components/sections/works
   include /components/sections/stats
   include /components/sections/journal
-  include /components/sections/clients
+  include /components/sections/contact
