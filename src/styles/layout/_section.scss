@@ -1,11 +1,27 @@
 .section {
   padding-top: var(--section-padding);
+
+  &--tinted {
+    padding-bottom: var(--section-padding);
+    background-color: var(--color-bg-light);
+  }
+
+  &--dark {
+    padding-bottom: var(--section-padding);
+    color: var(--color-white);
+    background-color: var(--color-footer);
+
+    .section-title {
+      color: var(--color-white);
+    }
+  }
 }
 
 .section-title {
   display: flex;
   gap: 12px;
   align-items: center;
+  margin-bottom: 28px;
   font-family: var(--font-oswald);
   font-size: 18px;
   font-weight: 400;
