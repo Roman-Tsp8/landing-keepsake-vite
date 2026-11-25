@@ -1,39 +1,35 @@
 @use '../abstracts' as *;
 
 .logo {
-  display: flex;
-  gap: 2px;
+  display: inline-flex;
+  gap: 8px;
   align-items: center;
 
   &__mark {
-    @include flex-center;
-
-    width: 34px;
-    height: 34px;
-    font-family: var(--font-dancing-script);
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--color-white);
-    background-color: var(--color-text-dark);
-    border-radius: 50%;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent);
 
     @include mq(md) {
-      width: 40px;
-      height: 40px;
-      font-size: 26px;
+      width: 36px;
+      height: 36px;
     }
   }
 
   &__text {
     font-family: var(--font-dancing-script);
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 1;
     color: var(--color-text-dark);
 
     @include mq(md) {
-      font-size: 26px;
+      font-size: 28px;
     }
+  }
+
+  .footer & &__text {
+    color: var(--color-white);
   }
 }

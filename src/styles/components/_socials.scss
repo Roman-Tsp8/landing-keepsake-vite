@@ -3,48 +3,26 @@
 .socials {
   display: flex;
   gap: 10px;
+  align-items: center;
 
-  @include mq(md) {
-    gap: 8px;
-  }
-
-  @include mq(lg) {
-    gap: 10px;
-  }
-
-  &__icon {
+  &__link {
     @include flex-center;
 
-    width: 34px;
-    height: 34px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
+    width: 36px;
+    height: 36px;
     color: var(--color-white);
+    background-color: var(--color-footer-divider);
     border-radius: 50%;
+    transition: background-color 0.2s ease;
 
     &:hover {
-      opacity: 0.85;
+      background-color: var(--color-accent);
     }
 
-    &--rss {
-      background-color: var(--color-social-rss);
-    }
-
-    &--f {
-      background-color: var(--color-social-f);
-    }
-
-    &--tw {
-      background-color: var(--color-social-tw);
-    }
-
-    &--dr {
-      background-color: var(--color-social-dr);
-    }
-
-    &--p {
-      background-color: var(--color-social-p);
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
     }
   }
 }

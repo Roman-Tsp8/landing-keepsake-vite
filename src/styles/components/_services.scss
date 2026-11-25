@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.services-grid {
+.services {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px 24px;

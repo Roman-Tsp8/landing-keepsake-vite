@@ -1,13 +1,11 @@
 @use '../abstracts' as *;
 
-.journal-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.journal {
+  display: grid;
+  gap: 32px;
 
-  @include mq(lg) {
-    display: grid;
+  @include mq(md) {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
+    gap: 36px;
   }
 }
